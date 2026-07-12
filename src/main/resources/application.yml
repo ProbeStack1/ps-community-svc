@@ -1,0 +1,27 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /community-api
+
+spring:
+  application:
+    name: ps-community-svc
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/probestack}
+      database: ${MONGODB_DATABASE:probestack_community}
+      auto-index-creation: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    io.probestack: DEBUG
+    org.springframework.data.mongodb: INFO
