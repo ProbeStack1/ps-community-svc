@@ -15,7 +15,7 @@ COPY --from=builder /app/target/ps-community-svc-*.jar app.jar
 RUN chown spring:spring app.jar && mkdir -p /tmp/logs
 USER spring:spring
 
-ENV PORT=8081
+ENV PORT=8080
 EXPOSE ${PORT}
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
